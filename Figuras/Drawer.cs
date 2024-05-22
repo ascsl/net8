@@ -7,8 +7,20 @@ namespace Figuras {
     {
         public static void Point(IPoint punto)
         {
-            Console.SetCursorPosition(punto.X, punto.Y);
-            Console.Write("*");
+             try
+            {
+                if (punto.X < 0 || punto.X > Console.WindowWidth - 1 || punto.Y < 0 || punto.Y > Console.WindowHeight - 1)
+                {
+                    throw new ArgumentOutOfRangeException("No esta permitido dibujar fuera de las dimensiones de la consola.");
+                }
+        
+                Console.SetCursorPosition(punto.X, punto.Y);
+                Console.Write("*");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }            
         }
 
         public static void Line(ILine linea)
