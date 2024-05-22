@@ -19,7 +19,7 @@ namespace Figuras {
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"Error: {ex.Message}");
             }            
         }
 
